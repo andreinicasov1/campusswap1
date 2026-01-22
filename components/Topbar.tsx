@@ -1,26 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getTgUser, tgReady } from "@/lib/tg";
+import { getTelegramUser } from "@/lib/tg-client";
 
 export default function Topbar() {
-  const [user, setUser] = useState(() => getTgUser());
+  const [name, setName] = useState("guest");
 
   useEffect(() => {
-    tgReady();
-
-    // Update a few times (Telegram initData can appear after initial render)
-    let tries = 0;
-    const maxTries = 20;
-    const t = setInterval(() => {
-      tries += 1;
-      const u = getTgUser();
-      setUser(u);
-      if (u.id !== "guest" || tries >= maxTries) clearInterval(t);
-    }, 200);
-
-    return () => clearInterval(t);
+    (async () => {
+      const u = await getTelegramUser();
+      if (u?.first_name) setName(u.first_name);
+      else if (u?.username) setName(u.username);
+      else if (u?.id) setName(String(u.id));
+    })();
   }, []);
+
+  return (
+    <div className="...">
+      <span>{name}</span>
+    </div>
+  );
+}
 
   return (
     <div className="flex items-start justify-between gap-4">
