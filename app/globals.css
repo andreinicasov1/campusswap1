@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { -webkit-tap-highlight-color: transparent; }
+
+.bg-app {
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(59,130,246,.18), transparent 60%),
+              radial-gradient(900px 600px at 90% 10%, rgba(99,102,241,.14), transparent 55%),
+              linear-gradient(180deg, #050B1A 0%, #030714 100%);
+}
+
+.glow { box-shadow: 0 0 0 1px rgba(59,130,246,.15), 0 18px 70px rgba(37,99,235,.18); }
+
+.cardGlass{
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(59,130,246,.22), transparent 55%),
+              linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border: 1px solid rgba(59,130,246,.22);
+  backdrop-filter: blur(10px);
+}
+
+.inp{
+  width:100%;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.05);
+  padding: .8rem 1rem;
+  outline: none;
+  border: 1px solid rgba(255,255,255,.10);
+}
+.inp:focus{
+  border-color: rgba(96,165,250,.5);
+  box-shadow: 0 0 0 4px rgba(59,130,246,.15);
+}
+
+.btn{
+  border-radius: 1rem;
+  padding: .85rem 1rem;
+  font-weight: 700;
+  transition: 160ms ease;
+}
+.btnPrimary{ background: rgba(59,130,246,.9); border: 1px solid rgba(147,197,253,.28); }
+.btnPrimary:hover{ background: rgba(96,165,250,.92); }
+.btnGhost{ background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10); }
+.btnGhost:hover{ background: rgba(255,255,255,.10); }
+
+.badge{
+  border-radius: 9999px;
+  padding: .25rem .6rem;
+  font-size: .75rem;
+  border: 1px solid rgba(147,197,253,.22);
+  background: rgba(59,130,246,.12);
+}
+
+.subtle{ color: rgba(255,255,255,.70); }
+.muted{ color: rgba(255,255,255,.55); }
+
+.lineClamp1{ display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.lineClamp2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
